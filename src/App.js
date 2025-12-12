@@ -1,14 +1,31 @@
 // 当前文件：就是当前项目的根组件
 // app被引入到index.js然后被渲染到public/index.html的一个id为root的dom节点上
+
+
 // const count = 100
 // function getName() {
 //   return 'rosy'
 // }
-const list = [
-  {id:1001,name:'Vue'},
-  {id:1002,name:'React'},
-  {id:1003,name:'jQuery'}
-]
+
+// const list = [
+//   {id:1001,name:'Vue'},
+//   {id:1002,name:'React'},
+//   {id:1003,name:'jQuery'}
+// ]
+
+// const isLogin = false
+// const isLogin = true
+
+const articleType = 3 // 0 1 3
+function getArticleType() {
+  if (articleType === 0) {
+    return <div>无图文章</div>
+  } else if (articleType === 1) {
+    return <div>单图文章</div>
+  } else {
+    return <div>三图文章</div>
+  }
+}
 function App() {
   return (
     // JSX识别js表达式
@@ -39,9 +56,28 @@ function App() {
     // JSX实现列表渲染
     // map循环哪个结构，就return哪个结构
     // 注意要加上一个独一无二的key，否则控制台报错。key的作用：react框架内部使用，用于提升列表更新性能
+    // < div className="App" >
+    //   <ul>
+    //     {list.map(item => <li key={item.id}>{item.name}</li>)}
+    //   </ul>
+    // </div>
+
+
+    // JSX实现条件渲染
+    // < div className="App" >
+    //   <ul>
+    //     {/* 逻辑与 */}
+    //     {isLogin && <span>this is span</span>}
+    //     {/* 三元运算 */}
+    //     {isLogin ? <span>jack</span> : <span>please Login</span>}
+    //   </ul>
+    // </div>
+
+    // JSX实现复杂条件渲染
     < div className="App" >
       <ul>
-        {list.map(item => <li key={item.id}>{item.name}</li>)}
+        {/* 调用函数渲染不同的模板 */}
+        {getArticleType()}
       </ul>
     </div>
   );
