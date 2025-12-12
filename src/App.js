@@ -27,19 +27,24 @@
 //   }
 // }
 
+// 定义组件
+function Button(){
+// const Button = () => {   也可以用箭头函数
+  return <button>点我呀</button>
+}
 function App() {
-  const clickHandler1 = () => {
-    console.log('按钮按下了',)
-  }
-  const clickHandler2 = (e) => {
-    console.log('按钮按下了', e)
-  }
+  // const clickHandler1 = () => {
+  //   console.log('按钮按下了',)
+  // }
+  // const clickHandler2 = (e) => {
+  //   console.log('按钮按下了', e)
+  // }
   // const clickHandler3 = (name) => {
   //   console.log('按钮按下了', name)
   // }
-  const clickHandler4 = (name, e) => {
-    console.log('按钮按下了', name, e)
-  }
+  // const clickHandler4 = (name, e) => {
+  //   console.log('按钮按下了', name, e)
+  // }
   return (
     // JSX识别js表达式
     // 在js代码中编写HTML模板结构，就是JSX（JavaScript和XML（HTML）的缩写）
@@ -78,34 +83,36 @@ function App() {
 
     // JSX实现条件渲染
     // < div className="App" >
-    //   <ul>
-    //     {/* 逻辑与 */}
-    //     {isLogin && <span>this is span</span>}
-    //     {/* 三元运算 */}
-    //     {isLogin ? <span>jack</span> : <span>please Login</span>}
-    //   </ul>
+    //   {/* 逻辑与 */}
+    //   {isLogin && <span>this is span</span>}
+    //   {/* 三元运算 */}
+    //   {isLogin ? <span>jack</span> : <span>please Login</span>}
     // </div>
 
 
     // JSX实现复杂条件渲染
     // < div className="App" >
-    //   <ul>
-    //     {/* 调用函数渲染不同的模板 */}
-    //     {getArticleType()}
-    //   </ul>
+    //   {/* 调用函数渲染不同的模板 */}
+    //   {getArticleType()}
     // </div>
 
 
     // react实现事件绑定
+    // < div className="App" >
+    //   {/* {<button onClick={clickHandler1}>按钮</button>} 基础绑定*/}
+    //   {/* {<button onClick={clickHandler2}>按钮</button>} 事件对象e*/}
+    //   {/* {<button onClick={() => clickHandler3('jack')}>按钮</button>} 自定义参数*/}
+    //   {/* {<button onClick={(e) => clickHandler4('jack',e)}>按钮</button>} 自定义参数+时间对象e*/}
+    // </div>
+
+
+    // 在react中，一个组件就是首字母大写的函数，内部存放了组件的逻辑和视图UI，渲染组件只需要把组件当成标签书写即可
     < div className="App" >
-      <ul>
-        {/* {<button onClick={clickHandler1}>按钮</button>} 基础绑定*/}
-        {/* {<button onClick={clickHandler2}>按钮</button>} 事件对象e*/}
-        {/* {<button onClick={() => clickHandler3('jack')}>按钮</button>} 自定义参数*/}
-        {/* {<button onClick={(e) => clickHandler4('jack',e)}>按钮</button>} 自定义参数+时间对象e*/}
-      </ul>
+      {/* 使用组件 */}
+      <Button></Button>
+      <br />
+      <Button />
     </div>
   );
 }
-
 export default App;
