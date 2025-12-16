@@ -2,6 +2,8 @@ import './index.css'
 import { useState } from 'react'
 import _, { random } from 'lodash'
 import classNames from 'classnames'
+import { v4 as uuidv4 } from 'uuid'
+import dayjs from 'dayjs'
 // 当前登录用户信息
 const user = {
   username: '张三',
@@ -35,7 +37,7 @@ function App() {
   */
   const [comments, setComments] = useState(_.orderBy([
     {
-      comment_id: 1,
+      comment_id: uuidv4(),
       username: '李四',
       content: '无语啦..',
       likes: 102,
@@ -43,7 +45,7 @@ function App() {
       userPhoto: 'https://avatars.githubusercontent.com/u/55019105?v=6'
     },
     {
-      comment_id: 2,
+      comment_id: uuidv4(),
       username: '王五',
       content: '我只能说666..',
       likes: 507,
@@ -56,12 +58,14 @@ function App() {
     setComments([
       ...comments,
       {
-        comment_id: comments.length + 1,
+        // comment_id: comments.length + 1,
+        comment_id: uuidv4(),
         username: user.username,
         content: content,
         likes: 0,
         // likes:random(100,1000),
-        createTime: new Date().toLocaleString(),
+        // createTime: new Date().toLocaleString(),
+        createTime: dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss'),
         userPhoto: user.userPhoto
       }
     ])
@@ -98,6 +102,7 @@ function App() {
               <span className="comment-username">{item.username}</span>
               <span className="comment-likes" style={{ color: 'red', marginRight: '10px' }}>点赞数{item.likes}</span>
               <span className="comment-time">{item.createTime}</span>
+              {/* <span className="comment-time">{item.createTime}~id:{item.comment_id}</span> */}
             </div>
             <div className="comment-content">{item.content}</div>
             {/* 删除评论按钮 */}
