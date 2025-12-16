@@ -1,5 +1,6 @@
 import './index.css'
 import { useState } from 'react'
+import _, { random } from 'lodash'
 // 当前登录用户信息
 const user = {
   username: '张三',
@@ -31,11 +32,12 @@ function App() {
     3.2通过记录的type和每一项遍历时的type做匹配，控制激活类名的显示
   4.评论列表排序功能实现
   */
- const [comments, setComments] = useState([
+ const [comments, setComments] = useState(_.orderBy([
    {
      comment_id: 1,
      username: '李四',
      content: '无语啦..',
+     likes: 102,
      createTime: '2021-01-01 12:00:00',
      userPhoto: 'https://avatars.githubusercontent.com/u/55019105?v=6'
     },
@@ -43,10 +45,11 @@ function App() {
       comment_id: 2,
       username: '王五',
       content: '我只能说666..',
+      likes: 507,
       createTime: '2021-01-01 12:00:00',
       userPhoto: 'https://avatars.githubusercontent.com/u/55019105?v=7'
     }
-  ])
+  ],'likes','desc'))
     const ClickPushComment=()=> { 
       setComments([
         ...comments,
@@ -54,6 +57,8 @@ function App() {
           comment_id: comments.length + 1,
           username: user.username,
           content: document.querySelector('.comment-textarea').value,
+          likes:0,
+          // likes:random(100,1000),
           createTime: new Date().toLocaleString(),
           userPhoto: user.userPhoto
         }
@@ -67,6 +72,11 @@ function App() {
     const [type, setType] = useState('hot')
     const handleTypeChange = (type) => {
       setType(type)
+      if (type === 'hot') {
+        setComments(_.orderBy(comments, 'likes', 'desc'))
+      } else {
+        setComments(_.orderBy(comments, 'createTime', 'desc'))
+      }
     }
     return (
       < div className="App" >
@@ -81,6 +91,7 @@ function App() {
             <div className="comment-header">
               <img className="comment-photo" src={item.userPhoto} alt="用户头像" />
               <span className="comment-username">{item.username}</span>
+              <span className="comment-likes" style={{color:'red',marginRight:'10px'}}>点赞数{item.likes}</span>
               <span className="comment-time">{item.createTime}</span>
             </div>
             <div className="comment-content">{item.content}</div>
