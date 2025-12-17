@@ -1,0 +1,59 @@
+{
+  "list": [
+    {
+      "rpid": 1,
+      "user": {
+        "uid": "2025001",
+        "avatar": "http://toutiao.itheima.net/resources/images/100.jpg",
+        "username": "编程小萌新"
+      },
+      "content": "这个教程讲得好清楚！",
+      "ctime": "12-01 14:30",
+      "like": 152
+    },
+    {
+      "rpid": 2,
+      "user": {
+        "uid": "2025002",
+        "avatar": "http://toutiao.itheima.net/resources/images/101.jpg",
+        "username": "前端攻城狮"
+      },
+      "content": "学到了新技巧，感谢分享！",
+      "ctime": "12-02 09:15",
+      "like": 96
+    },
+    {
+      "rpid": 3,
+      "user": {
+        "uid": "2025003",
+        "avatar": "http://toutiao.itheima.net/resources/images/102.jpg",
+        "username": "后端小达人"
+      },
+      "content": "前端和后端配合起来真丝滑",
+      "ctime": "12-03 16:45",
+      "like": 78
+    },
+    {
+      "rpid": 4,
+      "user": {
+        "uid": "2025004",
+        "avatar": "http://toutiao.itheima.net/resources/images/103.jpg",
+        "username": "设计爱好者"
+      },
+      "content": "界面风格我太喜欢了！",
+      "ctime": "12-04 11:20",
+      "like": 110
+    },
+    {
+      "rpid": 5,
+      "user": {
+        "uid": "2025005",
+        "avatar": "http://toutiao.itheima.net/resources/images/104.jpg",
+        "username": "全栈追梦人"
+      },
+      "content": "从前端到后端都得学啊~",
+      "ctime": "12-05 18:00",
+      "like": 135
+    }
+  ]
+}
